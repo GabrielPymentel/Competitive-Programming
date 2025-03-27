@@ -50,25 +50,28 @@ ll mod_exp(ll a, ll b, ll m) {
 
 
 int binary_search(vi &arr, int x) {
-    int l = 0, r = sz(arr) - 1;
-    while (l <= r) {
-        int m = (l + r) / 2;
-        if (arr[m] == x) return m;
-        else if (arr[m] < x) l = m + 1;
-        else r = m - 1;
+    int l = 0, r = sz(arr);
+    while(l < r){
+        int m =(l+r) / 2;
+        if(arr[m] < x)
+            l = m + 1;
+        else
+            r = m;
     }
-    return -1;
+    if(l >= sz(arr))
+        return -1;
+    return ((arr[l] == x)? l+1:-1);
 }
 
 // ========================== PROBLEM ==========================
 
 void solve() {
-    // Problem solve 
+    // Solve Problem
 }
 
 int32_t main() { _;
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) solve();
     return 0;
 }
